@@ -1,0 +1,1267 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.background img {
+     position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Passt das Bild an, um den gesamten Container zu füllen */
+            z-index: -1; /* Stellt sicher, dass das Bild hinter dem Inhalt des Containers liegt */
+            display:flex;
+}
+
+header {
+    display: flex;
+    margin-top: 2%;
+    background-color: #d6cfc6;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    align-items: center;
+    top: 20px;
+    width: 90%;
+    margin-left: 45px;
+}
+
+.beruf-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 25vw;
+}
+
+    .beruf-container img {
+        width: 3vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-10deg);
+    }
+
+.beruf {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.beruf-container:hover img {
+    transform: scale(1.2);
+
+}
+
+.beruf-container:hover .beruf {
+    display: block;
+}
+
+.Hprojekt-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 35vh;
+    left: 50vw;
+}
+
+    .Hprojekt-container img {
+        width: 3vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+.Hprojekt {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Hprojekt-container:hover img {
+    transform: scale(1.2);
+}
+
+.Hprojekt-container:hover .Hprojekt {
+    display: block;
+}
+
+
+
+.Nprojekt-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 75vw;
+}
+
+    .Nprojekt-container img {
+        width: 3vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(10deg);
+    }
+
+.Nprojekt {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Nprojekt-container:hover img {
+    transform: scale(1.2);
+}
+
+.Nprojekt-container:hover .Nprojekt {
+    display: block;
+
+}
+
+.Name-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 25vw;
+}
+
+    .Name-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-10deg);
+    }
+
+.Name {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Name-container:hover img {
+    transform: scale(1.2);
+}
+
+.Name-container:hover .Name {
+    display: block;
+}
+
+
+.Pet-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 30vh;
+    left: 45vw;
+}
+
+    .Pet-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-5deg);
+    }
+
+.Pet {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Pet-container:hover img {
+    transform: scale(1.2);
+}
+
+.Pet-container:hover .Pet {
+    display: block;
+}
+
+.FavFilm-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 30vh;
+    left: 75vw;
+}
+
+    .FavFilm-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(25deg);
+    }
+
+.FavFilm {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.FavFilm-container:hover img {
+    transform: scale(1.2);
+}
+
+.FavFilm-container:hover .FavFilm {
+    display: block;
+}
+
+.FavColor-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 35vh;
+    left: 60vw;
+}
+
+    .FavColor-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-10deg);
+    }
+
+.FavColor {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.FavColor-container:hover img {
+    transform: scale(1.2);
+}
+
+.FavColor-container:hover .FavColor {
+    display: block;
+}
+
+.HiddenTalent-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 30vh;
+    left: 20vw;
+}
+
+    .HiddenTalent-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-15deg);
+    }
+
+
+.HiddenTalent {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.HiddenTalent-container:hover img {
+    transform: scale(1.2);
+}
+
+.HiddenTalent-container:hover .HiddenTalent {
+    display: block;
+}
+
+.FavPet-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 40vh;
+    left: 35vw;
+}
+
+    .FavPet-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(7deg);
+    }
+
+.FavPet {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.FavPet-container:hover img {
+    transform: scale(1.2);
+}
+
+.FavPet-container:hover .FavPet {
+    display: block;
+}
+
+.FavSnack-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 55vh;
+    left: 47vw;
+}
+
+    .FavSnack-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-5deg);
+    }
+
+.FavSnack {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.FavSnack-container:hover img {
+    transform: scale(1.2);
+}
+
+.FavSnack-container:hover .FavSnack {
+    display: block;
+}
+
+.Teach-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 60vh;
+    left: 62vw;
+}
+
+    .Teach-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(5deg);
+    }
+
+.Teach {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Teach-container:hover img {
+    transform: scale(1.2);
+}
+
+.Teach-container:hover .Teach {
+    display: block;
+}
+
+.Olympic-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 60vh;
+    left: 15vw;
+}
+
+    .Olympic-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-30deg);
+    }
+
+.Olympic {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Olympic-container:hover img {
+    transform: scale(1.2);
+}
+
+.Olympic-container:hover .Olympic {
+    display: block;
+}
+
+.FilmAgain-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 80vw;
+}
+
+    .FilmAgain-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(30deg);
+    }
+
+.FilmAgain {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.FilmAgain-container:hover img {
+    transform: scale(1.2);
+}
+
+.FilmAgain-container:hover .FilmAgain {
+    display: block;
+}
+
+.Planet-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 65vh;
+    left: 30vw;
+}
+
+    .Planet-container img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transform: rotate(-10deg);
+    }
+
+.Planet {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(153, 153, 153, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.9vw;
+}
+
+.Planet-container:hover img {
+    transform: scale(1.2);
+}
+
+.Planet-container:hover .Planet {
+    display: block;
+}
+
+    a {
+    color: #888f7a;
+    text-decoration: none;
+    margin-right: 1%;
+}
+
+    a:hover {
+        color: #515549;
+        text-decoration: underline;
+    }
+
+.haupP {
+    text-align: center;
+}
+
+.nebenP h2 {
+    margin-top: 20px;
+}
+
+.nebenP {
+    text-align: center;
+}
+
+iframe {
+    width: 500px;
+    height: 475px;
+}
+
+.bubble h2 {
+    font-size:15px;
+    text-align:center;
+    margin:0%;
+    width:25vw;
+}
+
+
+.bubble {
+    position: absolute;
+    display: inline-block;
+    top: 15vh;
+    left: 30vw;
+    width: 25vw;
+    background-color: rgba(153, 153, 153, 0.8);
+    padding-right: 16vw;
+    padding-left: 1vw;
+    padding-bottom: 1vh;
+    border-radius: 20px;
+    padding-top: 1vh;
+}
+
+    .bubble:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 48px solid transparent;
+        border-right-color: rgba(153, 153, 153, 0.8);
+        border-left: 0;
+        border-top: 0;
+        top: 20vh;
+        left: -3.75vw;
+    }
+
+.toadette {
+    position: absolute;
+    display: inline-block;
+    top: 27vh;
+    left: 20vw;
+}
+    .toadette img {
+        width: 6vw;
+    }
+
+
+.title {
+    text-align: center;
+    width: 100%;
+}
+
+.Bild img {
+    height: 250px;
+    width: auto;
+    float: right;
+    padding-right: 100px;
+    padding-top: 20px;
+}
+
+.Bild {
+}
+
+.projekt {
+    background-color: #a3ae9e;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0.5px;
+    color: #f5f3ee;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.text {
+    align-items: center;
+}
+
+table {
+    font-size: 25px;
+}
+
+    table td,
+    table th {
+        border-color: gray;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    table td {
+        text-align: start;
+    }
+
+    table th {
+        text-align: end;
+    }
+
+.nprojekt {
+    background-color: #a3ae9e;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0.5px;
+    color: #f5f3ee;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.hprojekt,
+.npr0jekt {
+    display: flex;
+    align-items: center;
+    font-family: 'Times New Roman';
+    margin-bottom: 10px;
+    color: #6c7261;
+}
+
+    .hprojekt .was,
+    .npr0jekt .name {
+        margin-top: 0;
+        flex: 1;
+        font-size: 23px;
+        margin-right: 30%;
+    }
+
+    .hprojekt .log0 img,
+    .npr0jekt .pic img {
+        width: 30%;
+        height: auto;
+        object-fit: cover;
+        margin: 3% 0 3% 20px;
+    }
+
+
+.npc-container {
+    margin-top: 20px;
+    position: relative;
+    width: 60%;
+    margin-left: 20vw;
+    margin-top: 50vh;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* Jeder NPC */
+.npc {
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    transition: bottom 0.15s ease-out;
+    margin-bottom: 20px;
+}
+
+    /* NPC-Bild */
+    .npc img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    /* Hover: Bild vergrößert sich */
+    .npc:hover img {
+        transform: scale(1.3);
+    }
+
+/* Textfeld über NPC */
+.npc-label {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Label sichtbar beim Hover */
+.npc:hover .npc-label {
+    opacity: 1;
+}
+
+
+.olma24-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 35vh;
+    left: 36.6vw;
+}
+
+.olma24point {
+    width: 15px; /* Größe des Punkts */
+    height: 15px;
+    background-color: #6bb055;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #406933
+}
+    
+    .olma24 {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color:gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.olma24-container:hover .olma24point {
+    transform: scale(1.2);
+}
+
+.olma24-container:hover .olma24 {
+    display: block;
+}
+
+
+
+
+
+.telco-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 32vh;
+    left: 33vw;
+}
+
+.telcopoint {
+    width: 15px; /* Größe des Punkts */
+    height: 15px;
+    background-color: #e44b5e;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #5b1e25;
+}
+
+.telco {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.telco-container:hover .telcopoint {
+    transform: scale(1.2);
+}
+
+.telco-container:hover .telco {
+    display: block;
+}
+
+
+
+
+.abuse-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 32vh;
+    left: 49vw;
+}
+
+.abusepoint {
+    width: 15px; /* Größe des Punkts */
+    height: 15px;
+    background-color: #e44b5e;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #5b1e25;
+}
+
+.abuse {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.abuse-container:hover .abusepoint {
+    transform: scale(1.2);
+}
+
+.abuse-container:hover .abuse {
+    display: block;
+}
+
+
+
+
+
+.mint-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 35vh;
+    left: 39vw;
+}
+
+.mintpoint {
+    width: 15px; /* Größe des Punkts */
+    height: 15px;
+    background-color: #6bb055;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #406933
+}
+
+.mint {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mint-container:hover .mintpoint {
+    transform: scale(1.2);
+}
+
+.mint-container:hover .mint {
+    display: block;
+}
+
+
+
+
+.gv-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 35vh;
+    left: 41.4vw;
+}
+
+.gvpoint {
+    width: 15px; /* Größe des Punkts */
+    height: 15px;
+    background-color: #6bb055;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #406933
+}
+
+.gv {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color:gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.gv-container:hover .gvpoint {
+    transform: scale(1.2);
+}
+
+.gv-container:hover .gv {
+    display: block;
+}
+
+
+.hover-image1 {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 25vh;
+    left: 35vw;
+
+}
+
+    .hover-image1 img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(-10deg);
+    }
+
+.note1 {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hover-image1:hover img {
+    transform: scale(1.2);
+}
+
+.hover-image1:hover .note1 {
+    display: block;
+}
+
+
+
+.hover-image2 {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 60vw;
+}
+
+    .hover-image2 img {
+        width: 6vw;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(7deg);
+    }
+
+.note2 {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+    .hover-image2:hover img {
+        transform: scale(1.2);
+    }
+
+.hover-image2:hover .note2 {
+    display: block;
+}
+
+
+.link {
+    position: fixed;
+    right: -100px;
+    top: 0;
+    width: 150px;
+    height: 50%;
+    background-color: #7fbce9;
+    border-width:5px;
+    border-style:solid;
+    border-color:#6fa8dc;
+    border-radius:25px;
+    transition: right 0.3s ease;
+    margin-top:10%;
+    margin-bottom:20%;
+}
+
+    .link:hover {
+        right: -10px;
+    }
+
+.icon-link {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .icon-link img {
+        width: 30px;
+        height: 30px;
+        
+    }
+
+
+.insta {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #e6e6e6;
+}
+
+/* === Header/Profile === */
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-bottom: 1px solid #222;
+    background: #121212;
+    padding-bottom: 15vh;
+}
+
+.profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+    margin-right: 20px;
+}
+
+/* === Name, Handle, Bio === */
+
+/* === Name, Handle, Bio === */
+.NameI {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.realname {
+    font-size: 14px;
+    font-weight: 500;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+    margin-left: 2px;
+}
+
+.bio {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-top: 4px;
+    line-height: 1.4;
+    max-width: 300px;
+}
+
+
+/* === Stats === */
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+/* === Buttons === */
+.buttons {
+    margin-top: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.follow {
+    background-color: #0095f6;
+    color: #fff;
+}
+
+    .follow:hover {
+        background-color: #007cd1;
+    }
+
+.message {
+    background-color: #262626;
+    color: #e6e6e6;
+}
+
+    .message:hover {
+        background-color: #333;
+    }
+
+/* === Galerie === */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background-color: #000;
+}
+
+    .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.2s ease;
+    }
+
+        .gallery img:hover {
+            opacity: 0.85;
+        }
+
+/* === Footer Navigation === */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #111;
+    border-top: 1px solid #222;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+    .nav a img {
+        width: 2vw;
+        transition: all 0.2s ease;
+        border-radius: 10px;
+        padding: 8px;
+    }
+
+    /* Hover-Effekt für alle Buttons */
+    .nav a:hover {
+        background-color: #222;
+    }
+
+/* Spezieller Hover-Effekt für Home */
+.home-button:hover {
+    background-color: #1e1e1e;
+    transform: scale(1.05);
+}
+
+/* Klick-Effekt */
+.home-button:active {
+    background-color: #333;
+    transform: scale(0.95);
+}
