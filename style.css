@@ -3,21 +3,22 @@
     margin: 0;
 }
 
+
+
 .background img {
      position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Passt das Bild an, um den gesamten Container zu füllen */
+            object-fit: cover; /* Passt das Bild an, um den gesamten Container zu fuellen */
             z-index: -1; /* Stellt sicher, dass das Bild hinter dem Inhalt des Containers liegt */
             display:flex;
 }
 
 header {
-    display: flex;
     margin-top: 2%;
-    background-color: #d6cfc6;
+    background-color: #33364b;
     border-radius: 10px;
     text-align: center;
     position: fixed;
@@ -25,6 +26,9 @@ header {
     top: 20px;
     width: 90%;
     margin-left: 45px;
+    padding-top:1%;
+    padding-bottom:1%;
+
 }
 
 .beruf-container {
@@ -564,14 +568,14 @@ header {
     display: block;
 }
 
-    a {
-    color: #888f7a;
+a {
+    color: #6c729d;
     text-decoration: none;
     margin-right: 1%;
 }
 
     a:hover {
-        color: #515549;
+        color: #5a5e87;
         text-decoration: underline;
     }
 
@@ -752,12 +756,12 @@ table {
         cursor: pointer;
     }
 
-    /* Hover: Bild vergrößert sich */
+    /* Hover: Bild vergrossert sich */
     .npc:hover img {
         transform: scale(1.3);
     }
 
-/* Textfeld über NPC */
+/* Textfeld ueber NPC */
 .npc-label {
     position: absolute;
     bottom: 120%;
@@ -789,7 +793,7 @@ table {
 }
 
 .olma24point {
-    width: 15px; /* Größe des Punkts */
+    width: 15px; /* Groesse des Punkts */
     height: 15px;
     background-color: #6bb055;
     border-radius: 50%; /* Rundung des Punkts */
@@ -834,7 +838,7 @@ table {
 }
 
 .telcopoint {
-    width: 15px; /* Größe des Punkts */
+    width: 15px; /* Groesse des Punkts */
     height: 15px;
     background-color: #e44b5e;
     border-radius: 50%; /* Rundung des Punkts */
@@ -878,7 +882,7 @@ table {
 }
 
 .abusepoint {
-    width: 15px; /* Größe des Punkts */
+    width: 15px; /* Groesse des Punkts */
     height: 15px;
     background-color: #e44b5e;
     border-radius: 50%; /* Rundung des Punkts */
@@ -923,7 +927,7 @@ table {
 }
 
 .mintpoint {
-    width: 15px; /* Größe des Punkts */
+    width: 15px; /* Groesse des Punkts */
     height: 15px;
     background-color: #6bb055;
     border-radius: 50%; /* Rundung des Punkts */
@@ -967,7 +971,7 @@ table {
 }
 
 .gvpoint {
-    width: 15px; /* Größe des Punkts */
+    width: 15px; /* Groesse des Punkts */
     height: 15px;
     background-color: #6bb055;
     border-radius: 50%; /* Rundung des Punkts */
@@ -1084,14 +1088,14 @@ table {
     top: 0;
     width: 150px;
     height: 50%;
-    background-color: #7fbce9;
-    border-width:5px;
-    border-style:solid;
-    border-color:#6fa8dc;
-    border-radius:25px;
+    background-color: #886e9f;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #665277;
+    border-radius: 25px;
     transition: right 0.3s ease;
-    margin-top:10%;
-    margin-bottom:20%;
+    margin-top: 10%;
+    margin-bottom: 20%;
 }
 
     .link:hover {
@@ -1127,7 +1131,7 @@ table {
     padding: 20px;
     border-bottom: 1px solid #222;
     background: #121212;
-    padding-bottom: 15vh;
+    padding-bottom: 8vh;
 }
 
 .profile-pic img {
@@ -1140,12 +1144,10 @@ table {
 }
 
 /* === Name, Handle, Bio === */
-
-/* === Name, Handle, Bio === */
-.NameI {
+.Name {
     font-size: 18px;
     font-weight: 600;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 4px;
 }
 
@@ -1164,7 +1166,6 @@ table {
     line-height: 1.4;
     max-width: 300px;
 }
-
 
 /* === Stats === */
 .stats {
@@ -1220,13 +1221,79 @@ button {
         height: 100%;
         object-fit: cover;
         transition: opacity 0.2s ease;
+        cursor: pointer;
     }
 
         .gallery img:hover {
             opacity: 0.85;
         }
 
-/* === Footer Navigation === */
+/* === Lightbox === */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-img {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .close:hover {
+        color: #bbb;
+    }
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    border: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+    .prev:hover, .next:hover {
+        color: #999;
+    }
+
+.prev {
+    left: 10%;
+}
+
+.next {
+    right: 10%;
+}
+
+/* === Footer === */
 footer {
     position: fixed;
     bottom: 0;
@@ -1249,19 +1316,325 @@ footer {
         padding: 8px;
     }
 
-    /* Hover-Effekt für alle Buttons */
     .nav a:hover {
         background-color: #222;
     }
 
-/* Spezieller Hover-Effekt für Home */
 .home-button:hover {
     background-color: #1e1e1e;
     transform: scale(1.05);
 }
 
-/* Klick-Effekt */
 .home-button:active {
     background-color: #333;
     transform: scale(0.95);
 }
+
+/* ============================
+   JOURNEY-KARUSSELL (Raumschiff-Stil)
+   ============================ */
+
+/* ============================
+   Karussell-Struktur
+   ============================ */
+
+.journey-carousel-container {
+    position: relative;
+    width: 85%;
+    margin-top:18vh;
+    margin-left:5vw;
+    height: 80vh;
+    overflow: hidden;
+
+}
+
+.journey-carousel {
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+    will-change: transform;
+}
+
+/* ============================
+   Sektionen (Slides)
+   ============================ */
+
+.journey-section {
+    height: 80vh; /* statt 100vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+
+    .journey-section.active {
+        opacity: 1;
+    }
+
+    .journey-section:not(.active) {
+        opacity: 0.5;
+    }
+
+    .journey-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px #ab8ac7;
+    }
+
+/* ============================
+   Karten (optional fuer Bilder)
+   ============================ */
+
+.journey-cards {
+    display: flex;
+    flex-wrap: wrap; /* <<< sorgt fÃ¼r automatisches Umbrechen */
+    justify-content: center; /* zentriert alles schÃ¶n */
+    gap: 2rem; /* Abstand zwischen den Karten */
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.journey-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ab8ac7;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(171, 138, 199, 0.3);
+    padding: 15px;
+    width: 250px; /* oder z. B. 20vw */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .journey-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .journey-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ab8ac7;
+    }
+
+    .journey-card h3 {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.3rem;
+        color: #ab8ac7;
+    }
+
+/* ============================
+   Navigations-Buttons (â†‘ â†“) â€” jetzt links
+   ============================ */
+
+.journey-nav {
+    position: absolute;
+    left: 10px; /* <-- vorher: right */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.journey-btn {
+    background: rgba(171, 138, 199, 0.15);
+    border: 1px solid #ab8ac7;
+    color: #ab8ac7;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 10px rgba(171, 138, 199, 0.3);
+    transition: all 0.3s ease;
+}
+
+    .journey-btn:hover {
+        background: #ab8ac7;
+        color: black;
+        box-shadow: 0 0 20px #ab8ac7;
+    }
+
+/* ============================
+   HUD-Anzeige (aktuelle Sektion) â€” jetzt rechts
+   ============================ */
+
+.journey-hud {
+    position: absolute;
+    left: 2px; /* <-- vorher: left */
+    top: 10%;
+    transform: translateY(-50%);
+    color: #ab8ac7;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ab8ac7;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ab8ac7;
+    z-index: 10;
+}
+
+
+/* ============================
+   Scroll / Pfeiltasten Hinweisanimation
+   ============================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+}
+
+/* ============================
+   Responsives Verhalten
+   ============================ */
+
+@media (max-width: 800px) {
+    .journey-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .journey-card {
+        width: 90%;
+    }
+
+    .journey-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .journey-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ===============================
+   JOURNEY LIGHTBOX
+   =============================== */
+#journey-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 20, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+}
+
+    #journey-lightbox img {
+        max-width: 80vw;
+        max-height: 70vh;
+        border-radius: 15px;
+        border: 2px solid #ab8ac7;
+        box-shadow: 0 0 30px #ab8ac7;
+        margin-bottom: 20px;
+    }
+
+#journey-lightbox-caption {
+    color: #ab8ac7;
+    font-size: 1.2rem;
+    max-width: 80%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.journey-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 2rem;
+    color: #ab8ac7;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .journey-close:hover {
+        color: white;
+    }
+
+.journey-lightbox-prev,
+.journey-lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 255, 255, 0.2);
+    color: #ab8ac7;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    transition: 0.3s;
+    display: flex; /* NEU: Pfeil perfekt zentrieren */
+    justify-content: center; /* NEU */
+    align-items: center; /* NEU */
+    z-index: 1000; /* NEU: Ã¼ber dem Bild */
+}
+
+    .journey-lightbox-prev:hover,
+    .journey-lightbox-next:hover {
+        background: #ab8ac7;
+        color: black;
+        box-shadow: 0 0 20px #ab8ac7;
+    }
+
+.journey-lightbox-prev {
+    left: 2vw; /* statt fester Pixelposition */
+}
+
+.journey-lightbox-next {
+    right: 2vw;
+}
+
+footer {
+    background-color: black;
+    border-color: black;
+    height: -25px;
+}
+
+    footer .descriptGreen {
+        color: antiquewhite;
+        border-color: black;
+    }
+
+    footer .RedPoint {
+        width: 30px;
+        background-color: #e44b5e;
+        border-color:black;
+        border-radius: 50%;
+    }
+
+    footer .descriptRed {
+        color: antiquewhite;
+        border-color: black;
+    }
+
+    footer .GreenPoint {
+        width: 30px;
+        background-color: #6bb055;
+        border-color: black;
+        border-radius: 50%;
+    }
+
+
