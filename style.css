@@ -1003,6 +1003,48 @@ table {
     display: block;
 }
 
+.days-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 38.5vh;
+    left: 36.6vw;
+}
+
+.daypoint {
+    width: 15px; /* Groesse des Punkts */
+    height: 15px;
+    background-color: #6bb055;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #406933
+}
+
+.day {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.days-container:hover .daypoint {
+    transform: scale(1.2);
+}
+
+.days-container:hover .day {
+    display: block;
+}
+
+
 
 .hover-image1 {
     position: absolute;
