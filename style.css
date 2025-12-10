@@ -735,7 +735,7 @@ table {
     width: 60%;
     margin-left: 20vw;
     margin-top: 50vh;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -914,6 +914,46 @@ table {
     display: block;
 }
 
+.keycom-container {
+    position: absolute;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    top: 31vh;
+    left: 54vw;
+}
+
+.keycompoint {
+    width: 15px; /* Groesse des Punkts */
+    height: 15px;
+    background-color: #e44b5e;
+    border-radius: 50%; /* Rundung des Punkts */
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    box-shadow: 0px 0px 10px #5b1e25;
+}
+
+.keycom {
+    position: absolute;
+    bottom: 105%;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.keycom-container:hover .keycompoint {
+    transform: scale(1.2);
+}
+
+.keycom-container:hover .keycom {
+    display: block;
+}
 
 
 
