@@ -1308,6 +1308,12 @@ button {
     background-color: #000;
 }
 
+
+.gallery img[src^="img/nele/"] {
+    width: 70%;
+    height: 70%;
+}
+
     .gallery img {
         width: 100%;
         height: 100%;
@@ -1320,12 +1326,6 @@ button {
         .gallery img:hover {
             opacity: 0.85;
         }
-
-.gallery img[src^="img/nele/"] {
-    width: 70%;
-    height: 70%;
-}
-
 /* === Lightbox === */
 .lightbox {
     display: none;
