@@ -1319,6 +1319,9 @@ button {
 .gallery img[src^="img/nele/"] {
     width: 70%;
     height: 70%;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
 }
 
     .gallery img {
