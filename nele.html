@@ -61,12 +61,22 @@
         </footer>
 
         <!-- Lightbox -->
-        <div id="lightbox" class="lightbox">
-            <span class="close">&times;</span>
-            <img class="lightbox-img" id="lightbox-img" src="" alt="">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-        </div>
+   <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+
+    <div class="photo-container">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+
+        <div id="animal-tags"></div>
+
+        <button id="show-tags" class="show-tags" title="Markierungen anzeigen">
+            🐾
+        </button>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
 
         <script src="script.js"></script>
     </div>
