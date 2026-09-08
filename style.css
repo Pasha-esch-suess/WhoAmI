@@ -1301,6 +1301,13 @@ button {
     }
 
 /* === Galerie === */
+.gallery [src^="img/nele/"] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background-color: #000;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
