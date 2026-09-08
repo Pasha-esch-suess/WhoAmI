@@ -1448,6 +1448,8 @@ button {
     position: absolute;
 
     inset: 0;
+        text-align: center;
+
 
     pointer-events: none;
 }
