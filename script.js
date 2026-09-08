@@ -1,3 +1,84 @@
+const galleryImages = document.querySelectorAll(".gallery img");
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let currentImage = 0;
+
+// Bild anklicken
+galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        currentImage = index;
+        openLightbox();
+    });
+});
+
+function openLightbox() {
+    lightbox.classList.add("active");
+    lightboxImg.src = galleryImages[currentImage].src;
+
+    // verhindert Scrollen im Hintergrund
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+// Schließen
+closeBtn.addEventListener("click", closeLightbox);
+
+// nächstes Bild
+nextBtn.addEventListener("click", () => {
+    currentImage++;
+
+    if (currentImage >= galleryImages.length) {
+        currentImage = 0;
+    }
+
+    lightboxImg.src = galleryImages[currentImage].src;
+});
+
+// vorheriges Bild
+prevBtn.addEventListener("click", () => {
+    currentImage--;
+
+    if (currentImage < 0) {
+        currentImage = galleryImages.length - 1;
+    }
+
+    lightboxImg.src = galleryImages[currentImage].src;
+});
+
+// Klick auf Hintergrund schließt Lightbox
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Tastatursteuerung
+document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+    if (event.key === "ArrowRight") {
+        nextBtn.click();
+    }
+
+    if (event.key === "ArrowLeft") {
+        prevBtn.click();
+    }
+});
+
 const npcs = document.querySelectorAll('.npc');
 const container = document.querySelector('.npc-container');
 
