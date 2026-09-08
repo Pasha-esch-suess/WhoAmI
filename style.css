@@ -760,7 +760,10 @@ table {
 
 .npc img[src="img/nele/Firefly.png"] {
     width: 75%;
-    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
 }
 
     /* Hover: Bild vergrossert sich */
