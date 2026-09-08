@@ -748,13 +748,7 @@ table {
     margin-bottom: 20px;
 }
 
-.npcN {
-    position: absolute;
-    bottom: 0;
-    width: 90px;
-    transition: bottom 0.15s ease-out;
-    margin-bottom: 20px;
-}
+
     /* NPC-Bild */
     .npc img {
         width: 100%;
@@ -763,17 +757,11 @@ table {
         cursor: pointer;
     }
 
-.npcN img {
-        width: 75%;
-        display: block;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
 
-
-.npc:hover img {
-        transform: scale(1.3);
-    }
+.npc img[src="img/nele/Firefly.png"] {
+    width: 75%;
+    height: auto;
+}
 
     /* Hover: Bild vergrossert sich */
     .npc:hover img {
