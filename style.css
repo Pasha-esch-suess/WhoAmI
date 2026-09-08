@@ -756,6 +756,13 @@ table {
         cursor: pointer;
     }
 
+.npcN img {
+        width: 75%;
+        display: block;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
     /* Hover: Bild vergrossert sich */
     .npc:hover img {
         transform: scale(1.3);
