@@ -7,9 +7,17 @@ const closeBtn = document.querySelector(".close");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
-let currentImage = 0;
+const tagsContainer = document.getElementById("animal-tags");
+const showTagsButton = document.getElementById("show-tags");
 
-// Bild anklicken
+let currentImage = 0;
+let tagsVisible = false;
+
+
+// -------------------------
+// BILD ÖFFNEN
+// -------------------------
+
 galleryImages.forEach((img, index) => {
     img.addEventListener("click", () => {
         currentImage = index;
@@ -17,53 +25,147 @@ galleryImages.forEach((img, index) => {
     });
 });
 
+
 function openLightbox() {
     lightbox.classList.add("active");
-    lightboxImg.src = galleryImages[currentImage].src;
-
-    // verhindert Scrollen im Hintergrund
     document.body.style.overflow = "hidden";
+
+    showCurrentImage();
 }
 
-function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
+
+// -------------------------
+// AKTUELLES BILD ANZEIGEN
+// -------------------------
+
+function showCurrentImage() {
+
+    const image = galleryImages[currentImage];
+
+    lightboxImg.src = image.src;
+
+    tagsVisible = false;
+
+    loadTags(image);
 }
 
-// Schließen
-closeBtn.addEventListener("click", closeLightbox);
 
-// nächstes Bild
+// -------------------------
+// TAGS LADEN
+// -------------------------
+
+function loadTags(image) {
+
+    tagsContainer.innerHTML = "";
+
+    const tagData = image.dataset.tags;
+
+    // Keine Tiere markiert
+    if (!tagData) {
+        showTagsButton.style.display = "none";
+        return;
+    }
+
+    showTagsButton.style.display = "block";
+
+    const tags = JSON.parse(tagData);
+
+    tags.forEach(tag => {
+
+        const link = document.createElement("a");
+
+        link.classList.add("animal-tag");
+
+        link.textContent = tag.name;
+        link.href = tag.link;
+
+        link.style.left = tag.x + "%";
+        link.style.top = tag.y + "%";
+
+        tagsContainer.appendChild(link);
+    });
+}
+
+
+// -------------------------
+// TAGS EIN-/AUSBLENDEN
+// -------------------------
+
+showTagsButton.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    tagsVisible = !tagsVisible;
+
+    if (tagsVisible) {
+        tagsContainer.classList.add("visible");
+    } else {
+        tagsContainer.classList.remove("visible");
+    }
+
+});
+
+
+// -------------------------
+// NÄCHSTES BILD
+// -------------------------
+
 nextBtn.addEventListener("click", () => {
+
     currentImage++;
 
     if (currentImage >= galleryImages.length) {
         currentImage = 0;
     }
 
-    lightboxImg.src = galleryImages[currentImage].src;
+    showCurrentImage();
 });
 
-// vorheriges Bild
+
+// -------------------------
+// VORHERIGES BILD
+// -------------------------
+
 prevBtn.addEventListener("click", () => {
+
     currentImage--;
 
     if (currentImage < 0) {
         currentImage = galleryImages.length - 1;
     }
 
-    lightboxImg.src = galleryImages[currentImage].src;
+    showCurrentImage();
 });
 
-// Klick auf Hintergrund schließt Lightbox
+
+// -------------------------
+// SCHLIESSEN
+// -------------------------
+
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+
+closeBtn.addEventListener("click", closeLightbox);
+
+
 lightbox.addEventListener("click", (event) => {
+
     if (event.target === lightbox) {
         closeLightbox();
     }
+
 });
 
-// Tastatursteuerung
+
+// -------------------------
+// TASTATUR
+// -------------------------
+
 document.addEventListener("keydown", (event) => {
+
     if (!lightbox.classList.contains("active")) return;
 
     if (event.key === "Escape") {
@@ -77,6 +179,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
         prevBtn.click();
     }
+
 });
 
 const npcs = document.querySelectorAll('.npc');
