@@ -1316,9 +1316,15 @@ button {
         cursor: pointer;
     }
 
+
         .gallery img:hover {
             opacity: 0.85;
         }
+
+.gallery img[src^="img/nele/"] {
+    width: 70%;
+    height: 70%;
+}
 
 /* === Lightbox === */
 .lightbox {
