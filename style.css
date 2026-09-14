@@ -729,66 +729,122 @@ table {
     }
 
 
+/* =====================================================
+   NPC / TIERE
+   ===================================================== */
+
+
+/* Bereich, in dem sich die Tiere bewegen */
 .npc-container {
-    margin-top: 20px;
     position: relative;
+
     width: 60%;
+    height: 250px;
+
     margin-left: 20vw;
     margin-top: 50vh;
-    height: 250px;
+
     overflow: hidden;
 }
 
-/* Jeder NPC */
+
+/* =====================================================
+   EINZELNER NPC
+   ===================================================== */
+
 .npc {
     position: absolute;
+
+    left: 0;
     bottom: 0;
+
     width: 90px;
-    transition: bottom 0.15s ease-out;
+
     margin-bottom: 20px;
 }
 
 
-    /* NPC-Bild */
-    .npc img {
-        width: 100%;
-        display: block;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
+/* =====================================================
+   NPC-BILD
+   ===================================================== */
 
+.npc img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    cursor: pointer;
+
+    /* Nur Hover-Effekt animieren */
+    transition: transform 0.3s ease;
+}
+
+
+/* =====================================================
+   NELE / FIREFLY ETWAS KLEINER
+   ===================================================== */
 
 .npc img[src="img/nele/Firefly.png"] {
     width: 75%;
+    height: auto;
+
     display: block;
-    transition: transform 0.3s ease;
+
     cursor: pointer;
 
+    transition: transform 0.3s ease;
 }
 
-    /* Hover: Bild vergrossert sich */
-    .npc:hover img {
-        transform: scale(1.3);
-    }
 
-/* Textfeld ueber NPC */
+/* =====================================================
+   HOVER-EFFEKT
+   ===================================================== */
+
+/* Tier wird größer, wenn Maus darüber ist */
+.npc:hover img {
+    transform: scale(1.3);
+}
+
+
+/* =====================================================
+   NAME ÜBER DEM TIER
+   ===================================================== */
+
 .npc-label {
     position: absolute;
+
     bottom: 120%;
     left: 50%;
+
     transform: translateX(-50%);
+
     background: rgba(0, 0, 0, 0.75);
-    color: #fff;
+
+    color: white;
+
     padding: 6px 10px;
+
     border-radius: 8px;
+
     font-size: 14px;
+
     white-space: nowrap;
+
     opacity: 0;
+
     transition: opacity 0.3s ease;
+
     pointer-events: none;
+
+    z-index: 10;
 }
 
-/* Label sichtbar beim Hover */
+
+/* =====================================================
+   NAME BEIM HOVER ANZEIGEN
+   ===================================================== */
+
 .npc:hover .npc-label {
     opacity: 1;
 }
