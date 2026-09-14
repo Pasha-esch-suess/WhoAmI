@@ -290,46 +290,30 @@ if (
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const container =
-        document.querySelector(".npc-container");
-
-    const npcs =
-        document.querySelectorAll(".npc");
-
+    const container = document.querySelector(".npc-container");
+    const npcs = document.querySelectorAll(".npc");
 
     // Keine NPCs auf dieser Seite
     if (!container || npcs.length === 0) {
-
         return;
-
     }
-
 
     npcs.forEach((npc, index) => {
 
         const img = npc.querySelector("img");
-
         const link = npc.dataset.link;
-
 
         // -------------------------
         // KLICK AUF TIER
         // -------------------------
 
         if (img) {
-
             img.addEventListener("click", () => {
-
                 if (link) {
-
                     window.location.href = link;
-
                 }
-
             });
-
         }
-
 
         // -------------------------
         // STARTPOSITION
@@ -339,43 +323,32 @@ document.addEventListener("DOMContentLoaded", () => {
             Math.random() *
             Math.max(
                 0,
-                container.clientWidth -
-                npc.offsetWidth
+                container.clientWidth - npc.offsetWidth
             );
 
+        // Zufällige Richtung
+        let direction = Math.random() > 0.5 ? 1 : -1;
 
-        // Richtung
-        let direction =
-            Math.random() > 0.5
-                ? 1
-                : -1;
-
-
-        // Geschwindigkeit
+        // Langsame Geschwindigkeit
         let speed =
-            0.8 +
-            Math.random() * 1.2;
-
+            0.2 +
+            Math.random() * 0.3;
 
         // Sprunghöhe
         let jumpAmplitude =
             10 +
             Math.random() * 10;
 
-
         // Unterschiedliche Hüpfbewegung
         let jumpFrequency =
             18 +
             Math.random() * 10;
 
-
-        // Pause
+        // Zufällige Pause
         let isPaused = false;
 
-
-        // Startposition setzen
+        // Startposition
         npc.style.left = `${x}px`;
-
         npc.style.bottom = "20px";
 
 
@@ -385,19 +358,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function randomPause() {
 
-            if (Math.random() < 0.003) {
+            if (Math.random() < 0.0015) {
 
                 isPaused = true;
 
-
                 setTimeout(() => {
-
                     isPaused = false;
-
-                }, 800 + Math.random() * 1800);
-
+                }, 1000 + Math.random() * 1500);
             }
-
         }
 
 
@@ -407,50 +375,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function move() {
 
-            const hovering =
-                npc.matches(":hover");
+            const hovering = npc.matches(":hover");
+            
+            if (hovering) {
+                npc.style.bottom = "20px";
+            }
 
-
-            if (!isPaused && !hovering) {
+            // Nur bewegen, wenn Maus NICHT über dem Tier ist
+            // und das Tier keine zufällige Pause macht
+            if (!hovering && !isPaused) {
 
                 x += speed * direction;
 
 
-                // -------------------------
-                // LINKER RAND
-                // -------------------------
-
+                // Linker Rand
                 if (x <= 0) {
-
                     x = 0;
-
                     direction = 1;
-
                 }
 
 
-                // -------------------------
-                // RECHTER RAND
-                // -------------------------
-
+                // Rechter Rand
                 if (
                     x + npc.offsetWidth >=
                     container.clientWidth
                 ) {
-
                     x =
                         container.clientWidth -
                         npc.offsetWidth;
 
                     direction = -1;
-
                 }
 
 
-                // -------------------------
-                // HÜPFEN
-                // -------------------------
-
+                // Hüpfbewegung
                 const jump =
                     Math.abs(
                         Math.sin(
@@ -460,29 +418,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     jumpAmplitude;
 
 
-                npc.style.left =
-                    `${x}px`;
-
+                npc.style.left = `${x}px`;
 
                 npc.style.bottom =
                     `${20 + jump}px`;
 
 
                 randomPause();
-
             }
 
-
+            // Animation weiterlaufen lassen
             requestAnimationFrame(move);
-
         }
 
 
         // Tiere leicht zeitversetzt starten
         setTimeout(() => {
-
             move();
-
         }, index * 150);
 
     });
