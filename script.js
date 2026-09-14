@@ -1,98 +1,489 @@
+// =====================================================
+// GALERIE / LIGHTBOX
+// =====================================================
+
+const galleryImages = document.querySelectorAll(".gallery img");
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+const tagsContainer = document.getElementById("animal-tags");
+const showTagsButton = document.getElementById("show-tags");
+
+let currentImage = 0;
+let tagsVisible = false;
+
+
+// Galerie nur starten, wenn alle benötigten Elemente existieren
+if (
+    galleryImages.length > 0 &&
+    lightbox &&
+    lightboxImg &&
+    closeBtn &&
+    prevBtn &&
+    nextBtn &&
+    tagsContainer &&
+    showTagsButton
+) {
+
+    // -------------------------
+    // BILD ÖFFNEN
+    // -------------------------
+
+    galleryImages.forEach((img, index) => {
+
+        img.addEventListener("click", () => {
+
+            currentImage = index;
+
+            openLightbox();
+
+        });
+
+    });
+
+
+    function openLightbox() {
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+        showCurrentImage();
+
+    }
+
+
+    // -------------------------
+    // AKTUELLES BILD
+    // -------------------------
+
+    function showCurrentImage() {
+
+        const image = galleryImages[currentImage];
+
+        lightboxImg.src = image.src;
+
+        tagsVisible = false;
+
+        tagsContainer.classList.remove("visible");
+
+        loadTags(image);
+
+    }
+
+
+    // -------------------------
+    // TIER-TAGS LADEN
+    // -------------------------
+
+    function loadTags(image) {
+
+        tagsContainer.innerHTML = "";
+
+        const tagData = image.dataset.tags;
+
+
+        if (!tagData) {
+
+            showTagsButton.style.display = "none";
+
+            return;
+
+        }
+
+
+        showTagsButton.style.display = "flex";
+
+
+        try {
+
+            const tags = JSON.parse(tagData);
+
+
+            tags.forEach((tag) => {
+
+                const link = document.createElement("a");
+
+                link.classList.add("animal-tag");
+
+                link.textContent = tag.name;
+
+                link.href = tag.link;
+
+                link.style.left = tag.x + "%";
+
+                link.style.top = tag.y + "%";
+
+
+                tagsContainer.appendChild(link);
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Fehler bei den Tier-Tags:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // -------------------------
+    // TAGS EIN-/AUSBLENDEN
+    // -------------------------
+
+    showTagsButton.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        tagsVisible = !tagsVisible;
+
+
+        if (tagsVisible) {
+
+            tagsContainer.classList.add("visible");
+
+        } else {
+
+            tagsContainer.classList.remove("visible");
+
+        }
+
+    });
+
+
+    // -------------------------
+    // NÄCHSTES BILD
+    // -------------------------
+
+    nextBtn.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        currentImage++;
+
+
+        if (currentImage >= galleryImages.length) {
+
+            currentImage = 0;
+
+        }
+
+
+        showCurrentImage();
+
+    });
+
+
+    // -------------------------
+    // VORHERIGES BILD
+    // -------------------------
+
+    prevBtn.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        currentImage--;
+
+
+        if (currentImage < 0) {
+
+            currentImage =
+                galleryImages.length - 1;
+
+        }
+
+
+        showCurrentImage();
+
+    });
+
+
+    // -------------------------
+    // LIGHTBOX SCHLIESSEN
+    // -------------------------
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+        tagsContainer.classList.remove("visible");
+
+        tagsVisible = false;
+
+    }
+
+
+    closeBtn.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        closeLightbox();
+
+    });
+
+
+    lightbox.addEventListener("click", (event) => {
+
+        if (event.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    });
+
+
+    // -------------------------
+    // TASTATUR
+    // -------------------------
+
+    document.addEventListener("keydown", (event) => {
+
+        if (!lightbox.classList.contains("active")) {
+
+            return;
+
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            nextBtn.click();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            prevBtn.click();
+
+        }
+
+    });
+
+}
+
+
+
+// =====================================================
+// NPC / TIERE
+// =====================================================
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const container = document.querySelector(".npc-container");
-    const npcs = document.querySelectorAll(".npc");
+    const container =
+        document.querySelector(".npc-container");
 
-    console.log("Container:", container);
-    console.log("NPCs gefunden:", npcs.length);
+    const npcs =
+        document.querySelectorAll(".npc");
 
-    if (!container) {
-        console.error("FEHLER: .npc-container wurde nicht gefunden!");
+
+    // Keine NPCs auf dieser Seite
+    if (!container || npcs.length === 0) {
+
         return;
+
     }
 
-    if (npcs.length === 0) {
-        console.error("FEHLER: Keine .npc Elemente gefunden!");
-        return;
-    }
 
     npcs.forEach((npc, index) => {
 
         const img = npc.querySelector("img");
+
         const link = npc.dataset.link;
 
-        // Klick auf Tier
+
+        // -------------------------
+        // KLICK AUF TIER
+        // -------------------------
+
         if (img) {
+
             img.addEventListener("click", () => {
+
                 if (link) {
+
                     window.location.href = link;
+
                 }
+
             });
+
         }
 
-        // Startposition
+
+        // -------------------------
+        // STARTPOSITION
+        // -------------------------
+
         let x =
             Math.random() *
             Math.max(
                 0,
-                container.clientWidth - npc.offsetWidth
+                container.clientWidth -
+                npc.offsetWidth
             );
 
-        // zufällige Richtung
-        let direction = Math.random() > 0.5 ? 1 : -1;
 
-        // unterschiedliche Geschwindigkeit
-        let speed = 1 + Math.random() * 1.5;
+        // Richtung
+        let direction =
+            Math.random() > 0.5
+                ? 1
+                : -1;
+
+
+        // Geschwindigkeit
+        let speed =
+            0.8 +
+            Math.random() * 1.2;
+
+
+        // Sprunghöhe
+        let jumpAmplitude =
+            10 +
+            Math.random() * 10;
+
+
+        // Unterschiedliche Hüpfbewegung
+        let jumpFrequency =
+            18 +
+            Math.random() * 10;
+
+
+        // Pause
+        let isPaused = false;
+
 
         // Startposition setzen
         npc.style.left = `${x}px`;
+
         npc.style.bottom = "20px";
 
 
-        function move() {
+        // -------------------------
+        // ZUFÄLLIGE PAUSE
+        // -------------------------
 
-            x += speed * direction;
+        function randomPause() {
 
-            // linker Rand
-            if (x <= 0) {
-                x = 0;
-                direction = 1;
+            if (Math.random() < 0.003) {
+
+                isPaused = true;
+
+
+                setTimeout(() => {
+
+                    isPaused = false;
+
+                }, 800 + Math.random() * 1800);
+
             }
 
-            // rechter Rand
-            if (
-                x + npc.offsetWidth >=
-                container.clientWidth
-            ) {
-                x =
-                    container.clientWidth -
-                    npc.offsetWidth;
-
-                direction = -1;
-            }
-
-
-            // einfache Hüpfbewegung
-            const jump =
-                Math.abs(
-                    Math.sin(x / 20)
-                ) * 15;
-
-
-            npc.style.left = `${x}px`;
-
-            npc.style.bottom =
-                `${20 + jump}px`;
-
-
-            requestAnimationFrame(move);
         }
 
 
-        // leicht versetzter Start
+        // -------------------------
+        // ANIMATION
+        // -------------------------
+
+        function move() {
+
+            const hovering =
+                npc.matches(":hover");
+
+
+            if (!isPaused && !hovering) {
+
+                x += speed * direction;
+
+
+                // -------------------------
+                // LINKER RAND
+                // -------------------------
+
+                if (x <= 0) {
+
+                    x = 0;
+
+                    direction = 1;
+
+                }
+
+
+                // -------------------------
+                // RECHTER RAND
+                // -------------------------
+
+                if (
+                    x + npc.offsetWidth >=
+                    container.clientWidth
+                ) {
+
+                    x =
+                        container.clientWidth -
+                        npc.offsetWidth;
+
+                    direction = -1;
+
+                }
+
+
+                // -------------------------
+                // HÜPFEN
+                // -------------------------
+
+                const jump =
+                    Math.abs(
+                        Math.sin(
+                            x / jumpFrequency
+                        )
+                    ) *
+                    jumpAmplitude;
+
+
+                npc.style.left =
+                    `${x}px`;
+
+
+                npc.style.bottom =
+                    `${20 + jump}px`;
+
+
+                randomPause();
+
+            }
+
+
+            requestAnimationFrame(move);
+
+        }
+
+
+        // Tiere leicht zeitversetzt starten
         setTimeout(() => {
+
             move();
-        }, index * 100);
+
+        }, index * 150);
 
     });
 
