@@ -440,3 +440,133 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// =====================================================
+// JOURNEY KARUSSELL
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const carousel = document.getElementById("journey-carousel");
+    const sections = document.querySelectorAll(".journey-section");
+
+    const upButton = document.getElementById("journeyUp");
+    const downButton = document.getElementById("journeyDown");
+
+    const hud = document.getElementById("journey-hud");
+
+    // Journey-Karussell existiert auf dieser Seite nicht
+    if (
+        !carousel ||
+        sections.length === 0 ||
+        !upButton ||
+        !downButton ||
+        !hud
+    ) {
+        return;
+    }
+
+    let currentSection = 0;
+
+
+    // -------------------------
+    // ABSCHNITT ANZEIGEN
+    // -------------------------
+
+    function showSection(index) {
+
+        currentSection = index;
+
+        // Jede Section ist 80vh hoch
+        carousel.style.transform =
+            `translateY(-${currentSection * 80}vh)`;
+
+        // active-Klasse aktualisieren
+        sections.forEach((section, i) => {
+
+            if (i === currentSection) {
+                section.classList.add("active");
+            } else {
+                section.classList.remove("active");
+            }
+
+        });
+
+        // HUD aktualisieren
+        hud.textContent =
+            `${currentSection + 1} / ${sections.length}`;
+    }
+
+
+    // -------------------------
+    // NACH UNTEN
+    // -------------------------
+
+    downButton.addEventListener("click", () => {
+
+        currentSection++;
+
+        // Nach letzter Section wieder zur ersten
+        if (currentSection >= sections.length) {
+            currentSection = 0;
+        }
+
+        showSection(currentSection);
+
+    });
+
+
+    // -------------------------
+    // NACH OBEN
+    // -------------------------
+
+    upButton.addEventListener("click", () => {
+
+        currentSection--;
+
+        // Vor erster Section zur letzten
+        if (currentSection < 0) {
+            currentSection = sections.length - 1;
+        }
+
+        showSection(currentSection);
+
+    });
+
+
+    // -------------------------
+    // TASTATUR ↑ ↓
+    // -------------------------
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "ArrowDown") {
+
+            currentSection++;
+
+            if (currentSection >= sections.length) {
+                currentSection = 0;
+            }
+
+            showSection(currentSection);
+        }
+
+
+        if (event.key === "ArrowUp") {
+
+            currentSection--;
+
+            if (currentSection < 0) {
+                currentSection = sections.length - 1;
+            }
+
+            showSection(currentSection);
+        }
+
+    });
+
+
+    // Startzustand
+    showSection(0);
+
+});
