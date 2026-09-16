@@ -565,8 +565,324 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    // -------------------------
+// MAUSRAD / SCROLLEN
+// -------------------------
+
+let scrollLocked = false;
+
+window.addEventListener(
+    "wheel",
+    (event) => {
+
+        // Nur reagieren, wenn nicht gerade gewechselt wird
+        if (scrollLocked) {
+            return;
+        }
+
+        // Nach unten scrollen
+        if (event.deltaY > 0) {
+
+            // Nur wechseln, wenn es noch einen
+            // nächsten Abschnitt gibt
+            if (currentSection < sections.length - 1) {
+
+                currentSection++;
+
+                showSection(currentSection);
+
+                scrollLocked = true;
+            }
+        }
+
+        // Nach oben scrollen
+        else if (event.deltaY < 0) {
+
+            // Nur wechseln, wenn es noch einen
+            // vorherigen Abschnitt gibt
+            if (currentSection > 0) {
+
+                currentSection--;
+
+                showSection(currentSection);
+
+                scrollLocked = true;
+            }
+        }
+
+
+        // Kurz warten, damit ein Scroll
+        // nicht mehrere Sections überspringt
+        if (scrollLocked) {
+
+            setTimeout(() => {
+                scrollLocked = false;
+            }, 900);
+
+        }
+
+    },
+    { passive: true }
+);
 
     // Startzustand
     showSection(0);
 
 });
+
+// =====================================================
+// JOURNEY LIGHTBOX
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const journeyImages =
+        document.querySelectorAll(".journey-card img");
+
+    const journeyLightbox =
+        document.getElementById("journey-lightbox");
+
+    const journeyLightboxImg =
+        document.getElementById("journey-lightbox-img");
+
+    const journeyCaption =
+        document.getElementById("journey-lightbox-caption");
+
+    const journeyClose =
+        document.querySelector(".journey-close");
+
+    const journeyPrev =
+        document.querySelector(".journey-lightbox-prev");
+
+    const journeyNext =
+        document.querySelector(".journey-lightbox-next");
+
+
+    // Falls wir nicht auf der Journey-Seite sind
+    if (
+        journeyImages.length === 0 ||
+        !journeyLightbox ||
+        !journeyLightboxImg ||
+        !journeyCaption ||
+        !journeyClose ||
+        !journeyPrev ||
+        !journeyNext
+    ) {
+        return;
+    }
+
+
+    let currentJourneyImage = 0;
+
+
+    // =========================
+    // BILD ANZEIGEN
+    // =========================
+
+    function showJourneyImage() {
+
+        const image =
+            journeyImages[currentJourneyImage];
+
+        // Bild übernehmen
+        journeyLightboxImg.src = image.src;
+
+        // Beschreibung aus data-caption holen
+        const caption = image.dataset.caption;
+
+        if (caption) {
+
+            journeyCaption.textContent = caption;
+            journeyCaption.style.display = "block";
+
+        } else {
+
+            // Keine Beschreibung vorhanden
+            journeyCaption.textContent = "";
+            journeyCaption.style.display = "none";
+
+        }
+    }
+
+
+    // =========================
+    // LIGHTBOX ÖFFNEN
+    // =========================
+
+    journeyImages.forEach((image, index) => {
+
+        image.addEventListener("click", () => {
+
+            currentJourneyImage = index;
+
+            showJourneyImage();
+
+            journeyLightbox.style.display = "flex";
+
+            // normales Scrollen sperren
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
+
+
+    // =========================
+    // NÄCHSTES BILD
+    // =========================
+
+    function nextJourneyImage() {
+
+        currentJourneyImage++;
+
+        if (
+            currentJourneyImage >=
+            journeyImages.length
+        ) {
+            currentJourneyImage = 0;
+        }
+
+        showJourneyImage();
+    }
+
+
+    // =========================
+    // VORHERIGES BILD
+    // =========================
+
+    function prevJourneyImage() {
+
+        currentJourneyImage--;
+
+        if (currentJourneyImage < 0) {
+
+            currentJourneyImage =
+                journeyImages.length - 1;
+
+        }
+
+        showJourneyImage();
+    }
+
+
+    // =========================
+    // BUTTON >
+    // =========================
+
+    journeyNext.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            nextJourneyImage();
+
+        }
+    );
+
+
+    // =========================
+    // BUTTON <
+    // =========================
+
+    journeyPrev.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            prevJourneyImage();
+
+        }
+    );
+
+
+    // =========================
+    // LIGHTBOX SCHLIESSEN
+    // =========================
+
+    function closeJourneyLightbox() {
+
+        journeyLightbox.style.display = "none";
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    journeyClose.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            closeJourneyLightbox();
+
+        }
+    );
+
+
+    // Klick auf dunklen Hintergrund
+    journeyLightbox.addEventListener(
+        "click",
+        (event) => {
+
+            if (event.target === journeyLightbox) {
+
+                closeJourneyLightbox();
+
+            }
+
+        }
+    );
+
+
+    // =========================
+    // TASTATUR
+    // =========================
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            // Nur reagieren, wenn
+            // Journey-Lightbox geöffnet ist
+            if (
+                journeyLightbox.style.display !== "flex"
+            ) {
+                return;
+            }
+
+
+            // Pfeiltaste rechts
+            if (event.key === "ArrowRight") {
+
+                event.preventDefault();
+
+                nextJourneyImage();
+
+            }
+
+
+            // Pfeiltaste links
+            if (event.key === "ArrowLeft") {
+
+                event.preventDefault();
+
+                prevJourneyImage();
+
+            }
+
+
+            // ESC schließt Lightbox
+            if (event.key === "Escape") {
+
+                closeJourneyLightbox();
+
+            }
+
+        }
+    );
+
+});
+
