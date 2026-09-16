@@ -331,8 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Langsame Geschwindigkeit
         let speed =
-            0.2 +
-            Math.random() * 0.3;
+            0.4 +
+            Math.random() * 0.6;
 
         // Sprunghöhe
         let jumpAmplitude =
