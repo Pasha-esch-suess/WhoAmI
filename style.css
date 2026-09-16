@@ -1661,10 +1661,10 @@ footer {
    ============================ */
 
 .journey-cards {
-    display: flex;
-    flex-wrap: wrap; /* <<< sorgt für automatisches Umbrechen */
-    justify-content: center; /* zentriert alles schön */
-    gap: 2rem; /* Abstand zwischen den Karten */
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    justify-content: center;
+    gap: 2rem;
     max-width: 90%;
     margin: 0 auto;
 }
