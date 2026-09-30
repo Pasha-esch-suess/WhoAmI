@@ -2613,3 +2613,69 @@ footer .nav,
         height: 105px;
     }
 }
+
+/* =========================================
+   ABOUTU / FORMULAR - HANDY
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .bubble {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: calc(100% - 30px);
+        max-width: none;
+
+        margin: 210px auto 0;
+        padding: 18px;
+
+        box-sizing: border-box;
+        border-radius: 25px;
+
+        text-align: center;
+    }
+
+    .bubble h2 {
+        width: 100%;
+        max-width: none;
+
+        margin: 0 0 15px 0;
+
+        font-size: clamp(20px, 6vw, 28px);
+        line-height: 1.15;
+
+        text-align: center;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .bubble iframe {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+
+        height: 520px;
+
+        margin: 0 auto;
+        border: 0;
+    }
+
+    .toadette {
+        position: absolute;
+
+        top: 145px;
+        left: 15px;
+
+        transform: none;
+        z-index: 3;
+    }
+
+    .toadette img {
+        width: clamp(70px, 22vw, 105px);
+        height: auto;
+    }
+}
