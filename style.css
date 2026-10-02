@@ -2686,3 +2686,112 @@ footer .nav,
         display: none;
     }
 }
+/* =========================================
+   JOURNEY - HANDY
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .journey-carousel-container {
+        width: calc(100% - 30px);
+        margin: 160px auto 0;
+        height: 80vh;
+        overflow: hidden;
+    }
+
+    .journey-section {
+        height: 80vh;
+        box-sizing: border-box;
+        padding: 10px 10px 100px;
+        overflow-y: auto;
+    }
+
+    .journey-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+
+        width: 100%;
+        justify-items: center;
+        align-items: start;
+    }
+
+    .journey-card {
+        width: 100%;
+        max-width: 170px;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .journey-card img {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    /* Pfeile unten links statt mitten auf den Bildern */
+    .journey-nav {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+        top: auto;
+
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        z-index: 20;
+    }
+
+    .journey-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 25px;
+    }
+
+    /* 1 / 2 Anzeige */
+    .journey-hud {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: auto;
+
+        font-size: 14px;
+        z-index: 20;
+    }
+
+    /* Seitenmenü unten rechts */
+    .link {
+        position: fixed;
+
+        top: auto;
+        right: 12px;
+        bottom: 15px;
+
+        width: auto;
+        height: auto;
+
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+
+        padding: 10px 14px;
+        border-radius: 18px;
+
+        z-index: 100;
+    }
+
+    .link .icon-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link .icon-link img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+}
