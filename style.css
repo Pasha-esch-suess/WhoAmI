@@ -2692,26 +2692,6 @@ footer .nav,
 
 @media (max-width: 600px) {
 
-    /* Anzeige 1 / 2 oben sauber sichtbar */
-    .journey-hud {
-        position: absolute;
-        top: 10px;
-        left: 15px;
-        right: auto;
-
-        font-size: 14px;
-        z-index: 30;
-    }
-
-    /* Platz unten für beide Navigationen */
-    .journey-section {
-        height: 80vh;
-        box-sizing: border-box;
-        padding: 55px 10px 90px;
-        overflow-y: auto;
-    }
-
-    /* Pfeile unten links */
     .journey-nav {
         position: absolute;
         left: 15px;
@@ -2725,12 +2705,11 @@ footer .nav,
         z-index: 30;
     }
 
-    /* Pfote / Globus / Home unten rechts */
     .link {
-        position: fixed;
+        position: absolute;
 
         top: auto;
-        right: 12px;
+        right: 15px;
         bottom: 12px;
 
         width: auto;
@@ -2743,19 +2722,16 @@ footer .nav,
         padding: 10px 14px;
         border-radius: 18px;
 
-        z-index: 100;
-    }
-}
-
-    .link .icon-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        z-index: 30;
     }
 
-    .link .icon-link img {
-        width: 32px;
-        height: 32px;
-        object-fit: contain;
+    .journey-section {
+        height: 80vh;
+        box-sizing: border-box;
+
+        /* Freier Bereich für die Buttons unten */
+        padding: 55px 10px 105px;
+
+        overflow-y: auto;
     }
 }
