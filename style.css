@@ -2654,28 +2654,28 @@ footer .nav,
         word-break: normal;
     }
 
-    .bubble iframe {
-        display: block;
+   .bubble iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
 
-        width: 100%;
-        max-width: 100%;
-        height: 520px;
+    /* vorher 520px */
+    height: 650px;
 
-        margin: 0 auto;
+    margin: 0 auto;
+    border: 0;
+}
 
-        border: 0;
-    }
+.toadette {
+    position: absolute;
 
-    .toadette {
-        position: absolute;
+    /* vorher 185px */
+    top: 210px;
 
-        /* Toadette sitzt jetzt ÜBER der Box */
-        top: 185px;
-        left: 25px;
-
-        transform: none;
-        z-index: 5;
-    }
+    left: 25px;
+    transform: none;
+    z-index: 5;
+}
 
     .toadette img {
         width: clamp(80px, 24vw, 110px);
