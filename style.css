@@ -2692,96 +2692,60 @@ footer .nav,
 
 @media (max-width: 600px) {
 
-    .journey-carousel-container {
-        width: calc(100% - 30px);
-        margin: 160px auto 0;
-        height: 80vh;
-        overflow: hidden;
+    /* Anzeige 1 / 2 oben sauber sichtbar */
+    .journey-hud {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        right: auto;
+
+        font-size: 14px;
+        z-index: 30;
     }
 
+    /* Platz unten für beide Navigationen */
     .journey-section {
         height: 80vh;
         box-sizing: border-box;
-        padding: 10px 10px 100px;
+        padding: 55px 10px 90px;
         overflow-y: auto;
     }
 
-    .journey-cards {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-
-        width: 100%;
-        justify-items: center;
-        align-items: start;
-    }
-
-    .journey-card {
-        width: 100%;
-        max-width: 170px;
-        height: auto;
-        box-sizing: border-box;
-    }
-
-    .journey-card img {
-        display: block;
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 15px;
-    }
-
-    /* Pfeile unten links statt mitten auf den Bildern */
+    /* Pfeile unten links */
     .journey-nav {
         position: absolute;
         left: 15px;
-        bottom: 15px;
+        bottom: 12px;
         top: auto;
 
         display: flex;
         flex-direction: row;
         gap: 10px;
 
-        z-index: 20;
+        z-index: 30;
     }
 
-    .journey-btn {
-        width: 48px;
-        height: 48px;
-        font-size: 25px;
-    }
-
-    /* 1 / 2 Anzeige */
-    .journey-hud {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        right: auto;
-
-        font-size: 14px;
-        z-index: 20;
-    }
-
-    /* Seitenmenü unten rechts */
+    /* Pfote / Globus / Home unten rechts */
     .link {
         position: fixed;
 
         top: auto;
         right: 12px;
-        bottom: 15px;
+        bottom: 12px;
 
         width: auto;
         height: auto;
 
         display: flex;
         flex-direction: row;
-        gap: 12px;
+        gap: 14px;
 
         padding: 10px 14px;
         border-radius: 18px;
 
         z-index: 100;
     }
+}
 
     .link .icon-link {
         display: flex;
